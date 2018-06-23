@@ -1,6 +1,6 @@
 <mat-toolbar color="primary">
   <a routerLink="/" class="link" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">
-    <i class="fa fa-home"></i>
+    <i class="fa fa-home"></i> Logic Factory
   </a>
   <div class="links-group">
     <a routerLink="/rulesets"  mat-button class="mat-button" routerLinkActive="active" *ngIf="auth.loggedIn">
@@ -30,4 +30,10 @@
   </div>
 </mat-toolbar>
 
-<router-outlet></router-outlet>
+<div class="container">
+  <div class="row">
+    <div class="col">
+        <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>
