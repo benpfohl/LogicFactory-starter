@@ -47,7 +47,12 @@ export class LoginComponent implements OnInit {
 
   login() {
     this.auth.login(this.loginForm.value).subscribe(
-      res => this.router.navigate(['/']),
+      ( res ) => {
+        localStorage.setItem('token', res.token);
+        const decodedUser = this.auth.decodeUserFromToken(res.token);
+        this.auth.setCurrentUser(decodedUser);
+        this.router.navigate(['/account']);
+      },
       error => this.toast.open('invalid email or password!', 'danger')
     );
   }

@@ -7,7 +7,13 @@ import { AuthService } from '../../services/auth.service';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent {
+  isAdmin: Boolean;
+  loggedIn: Boolean;
 
-  constructor(public auth: AuthService) { }
+  constructor(public auth: AuthService) {
+    console.log(auth.isAdmin);
+    this.isAdmin = auth.isAdmin;
+    this.loggedIn = auth.loggedIn;
+  }
 
 }

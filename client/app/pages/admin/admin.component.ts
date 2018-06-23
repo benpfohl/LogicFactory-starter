@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DataSource } from '@angular/cdk/collections';
-import { Observable } from 'rxjs/Observable';
-import 'rxjs/add/observable/of';
+import { Observable, of } from 'rxjs';
 
 import { ToastComponent } from '../../shared/toast/toast.component';
 import { AuthService } from '../../services/auth.service';
@@ -13,10 +12,9 @@ import { User } from '../../shared/models/user.model';
   templateUrl: './admin.component.html',
   styleUrls: ['./admin.component.scss']
 })
-
 export class AdminComponent implements OnInit {
 
-  title = 'Rgistered Users';
+  title = 'Registered Users';
   users: User[] = [];
   isLoading = true;
   displayedColumns = ['username', 'email', 'role', 'action'];
@@ -67,8 +65,8 @@ export class TableDataSource extends DataSource<any> {
   }
   /** Connect function called by the table to retrieve one stream containing the data to render. */
   connect(): Observable<User[]> {
-    return Observable.of(this.data);
+    return of(this.data);
   }
 
-  disconnect() { }
+  disconnect() {}
 }

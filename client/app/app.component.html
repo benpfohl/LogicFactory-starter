@@ -3,7 +3,13 @@
     <i class="fa fa-home"></i>
   </a>
   <div class="links-group">
-    <a routerLink="/admin" class="link" routerLinkActive="active" *ngIf="auth.loggedIn && auth.isAdmin">
+    <a routerLink="/rulesets"  mat-button class="mat-button" routerLinkActive="active" *ngIf="auth.loggedIn">
+      Rule Sets
+    </a>
+    <a routerLink="/fieldsets" mat-button class="mat-button" routerLinkActive="active" *ngIf="auth.loggedIn">
+      Field Sets
+    </a>
+    <a routerLink="/admin" mat-button class="mat-button" routerLinkActive="active" *ngIf="auth.loggedIn && auth.isAdmin">
       Admin Panel
     </a>
   </div>
